@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Regression Test">
+
+    <test name="test-1" enabled="true">
+        <packages>
+            <package name="tech.lolc.indo.digitalme.tests">
+
+            </package>
+        </packages>
+
+    </test>
+</suite>
