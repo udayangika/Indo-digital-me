@@ -45,5 +45,22 @@ public class TestData {
 
         };
     }
+    @DataProvider(name = "userRoles")
+    public Object[][] getUserRoles() {
+        return new Object[][]{
+                {"NOVI", "Lolc@1234", "Select a User Role to Continue", "Administrator", "Dashboard","Administrator"},//admin
+                {"DEAP", "Lolc@1234", "Select a User Role to Continue", "Customer Service Assistance", "Dashboard","Customer Service Assistance"},//CSA
+                {"DIKOP", "Lolc@1234", "Select a User Role to Continue", "Credit Analyst", "Dashboard","Credit Analyst"},//CA
+                {"RINDIA", "Lolc@1234", "Select a User Role to Continue", "Branch Manager", "Dashboard","Branch Manager"},//BM
+                {"FIRGANS", "Lolc@1234", "Select a User Role to Continue", "Area Manager", "Dashboard","Area Manager"},//AM
+                {"LUGIP", "Lolc@1234", "Select a User Role to Continue", "SLIK User", "Dashboard","SLIK User"},//sllik user
+                {"STEVEI", "Lolc@1234", "Select a User Role to Continue", "Regional Manager", "Dashboard","Regional Manager"},//RM
+                {"DEDYE", "Lolc@1234", "Select a User Role to Continue", "Director", "Dashboard", "Director"},//Director
+                {"RIA", "Lolc@1234", "Select a User Role to Continue", "Board of Member 1", "Dashboard","Board of Member 1"},//BOD1
+                {"SUPRIYON", "Lolc@1234", "Select a User Role to Continue", "Board of Member 2", "Dashboard","Board of Member 2"},//BOD2
+                {"PRABAT", "Lolc@1234", "Select a User Role to Continue", "Board of Member 3", "Dashboard","Board of Member 3"}
+
+        };
+    }
 
 }

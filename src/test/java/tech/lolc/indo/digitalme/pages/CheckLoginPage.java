@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CheckLoginPage {
+    public boolean isMenuLoaded;
     @FindBy(id = "btn-login")
     WebElement byLoginButton;
 
@@ -35,6 +36,19 @@ public class CheckLoginPage {
 
     @FindBy(id = "btn-tile-role-0")
     WebElement byUserRoleTitle;
+    @FindBy(xpath = "//span[contains(@class, 'ant-menu-title-content') and text()='Dashboard']")
+    WebElement menuDasboard;
+    @FindBy(xpath = "//span[contains(@class, 'ant-menu-title-content') and text()='User Management']")
+    WebElement menuUserMan;
+    @FindBy(xpath = "//span[contains(@class, 'ant-menu-title-content') and text()='Applications']")
+    WebElement menuApplications;
+    @FindBy(xpath = "//span[contains(@class, 'ant-menu-title-content') and text()='SLIK Requests']")
+    WebElement menuSlikReq;
+    @FindBy(xpath = "//span[contains(@class, 'ant-menu-title-content') and text()='Top-Up Definitions']")
+    WebElement menuTopup;
+    @FindBy(xpath = "//span[contains(@class, 'ant-menu-title-content') and text()='Reports']")
+    WebElement menuReports;
+
 //    @FindBy(id = "btn-tile-role-0")
 //    WebElement byRolePageClick;
 //    @FindBy(css = "li[data-menu-id='menu-/'] .ant-menu-title-content")
@@ -149,6 +163,8 @@ public class CheckLoginPage {
     }
 
     public String getTitle() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));  // Increased timeout for stability
+        wait.until(ExpectedConditions.visibilityOf(bytitle));
         return bytitle.getText();
     }
 
@@ -203,6 +219,47 @@ public class CheckLoginPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         return (String) js.executeScript("return arguments[0].validationMessage;", byUsername);
 
+    }
+    public boolean isMenuLoaded(String role) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        switch (role) {
+            case "Administrator":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuUserMan.isDisplayed() && menuApplications.isDisplayed() && menuSlikReq.isDisplayed() && menuReports.isDisplayed() && menuTopup.isDisplayed();
+            case "Customer Service Assistance":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed()&& menuSlikReq.isDisplayed();
+            case "Credit Analyst":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            case "Branch Manager":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            case "Area Manager":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            case "SLIK User":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuSlikReq.isDisplayed();
+            case "Regional Manager":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            case "Director":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            case "Board of Member 1":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            case "Board of Member 2":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            case "Board of Member 3":
+                wait.until(ExpectedConditions.visibilityOf(menuDasboard));
+                return menuDasboard.isDisplayed() && menuApplications.isDisplayed();
+            default:
+
+                throw new IllegalArgumentException("Invalid role provided: " + role);
+        }
     }
 
 //    public boolean isAlertPresent() {

@@ -15,7 +15,8 @@ public class SetUp {
      WebDriver driver;
 
 
-        @BeforeMethod
+
+    @BeforeMethod
         public void setUp() {
             //close the browser info bar
             ChromeOptions options= new ChromeOptions();
@@ -30,7 +31,9 @@ public class SetUp {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get("https://indodigitalmeuat.lolc.com/indo-digital-loan"); // Sample URL
+
         }
+
 
         @AfterMethod
         public void tearDown() {
