@@ -48,6 +48,11 @@ public class CheckLoginPage {
     WebElement menuTopup;
     @FindBy(xpath = "//span[contains(@class, 'ant-menu-title-content') and text()='Reports']")
     WebElement menuReports;
+    @FindBy(id = "btn-collapse")
+    WebElement menuCollapseButton;
+    @FindBy(xpath = " //span[text()='\" + menuItem + \"']\"")
+    WebElement menuBar;
+
 
 //    @FindBy(id = "btn-tile-role-0")
 //    WebElement byRolePageClick;
@@ -260,16 +265,23 @@ public class CheckLoginPage {
 
                 throw new IllegalArgumentException("Invalid role provided: " + role);
         }
+
+    }
+    // Method to click on the menu button
+    public void toggleMenu() {
+        menuCollapseButton.click();
+    }
+    public boolean isMenuCollapsed() {
+        String usertest= menuDasboard.getText();
+        // Implement logic to verify if the menu is collapsed
+        return !usertest.isBlank(); // Replace with actual condition
+    }
+    public boolean isMenuExpanded() {
+        // Implement logic to verify if the menu is collapsed
+        return menuDasboard.isDisplayed(); // Replace with actual condition
     }
 
-//    public boolean isAlertPresent() {
-//        try {
-//            driver.switchTo().alert();
-//            return true;  // Alert is present
-//        } catch (NoAlertPresentException e) {
-//            return false; // No alert present
-//        }
-//    }
+
 
 
 

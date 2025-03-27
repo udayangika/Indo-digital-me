@@ -96,13 +96,20 @@ public class CheckLoginPageTest extends SetUp {
          ClickLoginBu();
 
         CheckLoginPage loginPage = new CheckLoginPage(driver);
-        loginPage.typeUsername(uname).typePassword(pass).clickLogin1();git
+        loginPage.typeUsername(uname).typePassword(pass).clickLogin1();
         Assert.assertEquals(loginPage.getTitleRole(), expecMessage, "Title is mismatched");
         Assert.assertEquals(loginPage.getTitleRoleDes(), expecMessage1, "Role Title is mismatched");
         loginPage.clickRolePageTile();
         Assert.assertEquals(loginPage.getTitleDashboard(), expecMessage2, "Not direct to the dashboard");
         // Assert that the menu is loaded for the given role
         Assert.assertTrue(loginPage.isMenuLoaded(role), role + " menu is not loaded correctly.");
+        //Menu collapse
+        loginPage.toggleMenu();
+        Assert.assertTrue(loginPage.isMenuCollapsed(), "Menu should be collapsed");
+        //Menu expand
+        loginPage.toggleMenu();
+        Assert.assertTrue(loginPage.isMenuExpanded(), "Menu should be Expanded");
+
     }
 
 
