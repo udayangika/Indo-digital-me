@@ -62,5 +62,15 @@ public class TestData {
 
         };
     }
+    @DataProvider(name = "Search-user")
+    public Object[][] searchUser() {
+        return new Object[][]{
+
+                {"NOVEINDRAS"},
+                {"RETNOM"},
+                {"HENDRAFE"},
+
+        };
+    }
 
 }

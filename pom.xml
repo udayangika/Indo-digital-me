@@ -44,6 +44,13 @@
             <artifactId>log4j-api</artifactId>
             <version>2.24.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v121 -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v121</artifactId>
+            <version>4.19.1</version>
+        </dependency>
+
 
 
 

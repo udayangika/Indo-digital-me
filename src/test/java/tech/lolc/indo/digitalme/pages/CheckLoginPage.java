@@ -11,10 +11,10 @@ import java.time.Duration;
 
 public class CheckLoginPage {
     public boolean isMenuLoaded;
-    @FindBy(id = "btn-login")
+    @FindBy(id ="btn-login")
     WebElement byLoginButton;
 
-    @FindBy(css = "h3.ui.header")
+    @FindBy(css ="h3.ui.header")
     WebElement bytitle;
 
     @FindBy(css = "img.w-auto.max-w-xs.md\\:max-w-sm[src='/indo-digital-loan/assets/digitalMe-96114880.png']")
@@ -50,16 +50,6 @@ public class CheckLoginPage {
     WebElement menuReports;
     @FindBy(id = "btn-collapse")
     WebElement menuCollapseButton;
-    @FindBy(xpath = " //span[text()='\" + menuItem + \"']\"")
-    WebElement menuBar;
-
-
-//    @FindBy(id = "btn-tile-role-0")
-//    WebElement byRolePageClick;
-//    @FindBy(css = "li[data-menu-id='menu-/'] .ant-menu-title-content")
-//    WebElement byDashboard;
-//    @FindBy(how = How.ID, using = "error-msg")
-//    WebElement byErrormsginvalidCred;
 
 
     private final WebDriver driver;
@@ -145,6 +135,8 @@ public class CheckLoginPage {
     }
 
     public CheckLoginPage clickLogin() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));  // Increased timeout for stability
+        wait.until(ExpectedConditions.visibilityOf(byLoginButton));
         byLoginButton.click();
         return this;
 
@@ -162,6 +154,8 @@ public class CheckLoginPage {
     }
 
     public CheckLoginPage clickLogin1() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));  // Increased timeout for stability
+        wait.until(ExpectedConditions.visibilityOf(byLogButton));
         byLogButton.click();
         return this;
 
@@ -194,6 +188,8 @@ public class CheckLoginPage {
     }
 
     public CheckLoginPage clickRolePageTile() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));  // Increased timeout for stability
+        wait.until(ExpectedConditions.visibilityOf(byUserRoleTitle));
         byUserRoleTitle.click();
         return this;
     }
