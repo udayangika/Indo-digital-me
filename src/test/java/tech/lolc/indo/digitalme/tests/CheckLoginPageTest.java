@@ -2,10 +2,14 @@ package tech.lolc.indo.digitalme.tests;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import tech.lolc.indo.digitalme.pages.CheckLoginPage;
+import tech.lolc.indo.digitalme.pages.UserManagemntPage;
 import tech.lolc.indo.digitalme.testng.TestData;
+import tech.lolc.indo.digitalme.utils.LoginUtils;
 
 public class CheckLoginPageTest extends SetUp {
 
@@ -77,13 +81,13 @@ public class CheckLoginPageTest extends SetUp {
 
     }
 
+   // @Test(description = "Check whether Login button is clickable")
+//    public void testLoginPageLoginButton() {
+//        ClickLoginBu();
+//
+//    }
     @Test(description = "Check whether Login button is clickable")
-    public void testLoginPageLoginButton() {
-        ClickLoginBu();
-
-    }
-
-    void ClickLoginBu() {
+    public  void ClickLoginBu() {
         CheckLoginPage loginPageIndo = new CheckLoginPage(driver);
 
 
